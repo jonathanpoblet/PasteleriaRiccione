@@ -99,7 +99,7 @@ if(seleccion == "SI"){
     alert(todosLosProductos.join("\n"));
 }
 else if(seleccion == "NO"){
-    alert("Gracias por venir, hasta pronto");
+    alert("Si cambias de opinion, presiona F5");
 }
 
 while(seleccion != "NO"){
@@ -191,5 +191,4 @@ while(seleccion != "NO"){
 const total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.precio * elemento.unidades,0);
 console.log("TOTAL: " + total);
 
-//Ingresar direccion completa para poder enviar el pedido
 
