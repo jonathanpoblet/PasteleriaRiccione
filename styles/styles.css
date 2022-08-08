@@ -327,6 +327,10 @@ footer {
   opacity: 1;
 }
 
+.main-productos .aside-productos .aside-productos-precio {
+  padding-top: 20px;
+}
+
 .main-productos .article-productos {
   display: -webkit-box;
   display: -ms-flexbox;
