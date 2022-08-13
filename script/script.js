@@ -1,51 +1,116 @@
 //creador de productos
 class Producto {
-    constructor(nombre,categoria,precioCosto){
+    constructor(nombre,categoria,precioCosto,foto){
         this.nombre = nombre.toUpperCase();
         this.categoria = categoria.toUpperCase();
         this.precioCosto = parseFloat(precioCosto);
+        this.foto = foto
     }
 }
 
 const productos = [];
 
 //productos ingresados al array
-productos.push(new Producto("torta selva negra","tortas",3100));
-productos.push(new Producto("chocotorta","tortas",2700));
-productos.push(new Producto("torta frutilla con crema","tortas",2400));
-productos.push(new Producto("torta de chocolate","tortas",2400));
-productos.push(new Producto("torta de zanahoria","tortas",2100));
-productos.push(new Producto("torta de limon","tortas",1850));
-productos.push(new Producto("torta cumpleaños hombre","tortas",4100));
-productos.push(new Producto("torta cumpleaños mujer","tortas",4100));
-productos.push(new Producto("macarons 3 unidades","macarons",300));
-productos.push(new Producto("macarons 6 unidades","macarons",500));
-productos.push(new Producto("macarons 24 unidades","macarons", 2050));
-productos.push(new Producto("cupcakes chocolate x 6","cupcakes",850));
-productos.push(new Producto("cupcakes vainilla x 6","cupcakes",850));
-productos.push(new Producto("cupcakes personalizados x 6","cupcakes",850));
-productos.push(new Producto("box dulce dia del padre","box dulce",2000));
-productos.push(new Producto("box dulce dia de la madre","box dulce", 2000));
-productos.push(new Producto("box dulce variado","box dulce", 2000));
-productos.push(new Producto("box dulce frutilla","box dulce", 2000));
-productos.push(new Producto("box dulce cumpleaños","box dulce", 2000));
-
+productos.push(new Producto("torta selva negra","tortas",3100,`../fotos/selva-negra.jpg`));
+productos.push(new Producto("chocotorta","tortas",2700,`../fotos/chocotorta.jpg`));
+productos.push(new Producto("box dulce padre","box dulce",2000,`../fotos/boxdulce-padre.jpg`));
+productos.push(new Producto("box dulce madre","box dulce", 2000,`../fotos/boxdulce-madre.jpg`));
+productos.push(new Producto("torta de zanahoria","tortas",2100,`../fotos/torta-zanahoria.jpg`));
+productos.push(new Producto("box dulce frutilla","box dulce", 2000,`../fotos/boxdulce-frutilla.jpg`));
+productos.push(new Producto("torta cumpleaños hombre","tortas",4100,`../fotos/torta-cumpleaños.jpg`));
+productos.push(new Producto("torta cumpleaños mujer","tortas",4100,`../fotos/torta-cumpleaños-mujer.jpg`));
+productos.push(new Producto("macarons 3 unidades","macarons",300,`../fotos/macaron-3.jpg`));
+productos.push(new Producto("torta de limon","tortas",1850,`../fotos/bizcochuelo-limon.jpg`));
+productos.push(new Producto("macarons 6 unidades","macarons",500,`../fotos/macarons-6.jpg`));
+productos.push(new Producto("cupcakes chocolate x 6","cupcakes",850,`../fotos/cupcakes-6unidades.jpg`));
+productos.push(new Producto("cupcakes vainilla x 6","cupcakes",850,`../fotos/cupcakes-6unidades-vainilla.jpg`));
+productos.push(new Producto("cupcakes mix x 6","cupcakes",850,`../fotos/cupcakes-personalizados.jpg`));
+productos.push(new Producto("box dulce variado","box dulce", 2000,`../fotos/boxdulce-variado.jpeg`));
+productos.push(new Producto("torta frutilla con crema","tortas",2400,`../fotos/torta-frutilla.jpg`));
+productos.push(new Producto("torta de chocolate","tortas",2400,`../fotos/torta-de-chocolate.jpg`));
+productos.push(new Producto("box dulce cumpleaños","box dulce", 2000,`../fotos/boxdulcecumpleaños.jpg`));
+productos.push(new Producto("macarons 24 unidades","macarons", 2050,`../fotos/macaron-24.jpg`));
 
 console.log("En total, Pasteleria Riccione tiene " + productos.length + " productos:");
 
 //productos al costo
 console.log(productos);
 
+
+//-------------------------------------------------------------------------------------------
+
+
 //le sume el iva a los productos
 const productosConImpuestos = productos.map(productos => {
     return {
         nombre: productos.nombre,
         categoria: productos.categoria,
-        precioConImpuestos: parseFloat(productos.precioCosto * 1.21)
+        precioConImpuestos: parseFloat(productos.precioCosto * 1.21),
+        foto: productos.foto
     }
 })
 console.log(productosConImpuestos)
 
+
+//-------------------------------------------------------------------------------------------
+
+
+//Tomo la seccion donde estan los productos y al articulo donde estan los productos, para poder hacer la funcion de armar cartas recorriendo el array de productos.
+const seccionProductos = document.getElementById("seccion-productos").getElementsByClassName("article-productos");
+const articleProductos = seccionProductos[0];
+
+//Funcion para crear las cartas
+function crearCartas(producto){
+    //Empezamos a crear la card, desde lo mas chico hasta lo mas grande, añidando todo
+    //Botón
+    let botonCarta = document.createElement("button");
+    botonCarta.className = "btn btn-outline-success card-boton"
+    botonCarta.innerText = "Agregar al carrito"
+
+    //Card body
+    let cuerpoCarta = document.createElement("div");
+    cuerpoCarta.className = "card-body"
+    cuerpoCarta.innerHTML = `
+        <h3 class="card-text">${producto.nombre}</h3>
+        <p class="card-text">$${producto.precioConImpuestos}</p>
+    `;
+    cuerpoCarta.append(botonCarta);
+
+    //Imagen
+    let imagenCarta = document.createElement("img");
+    imagenCarta.src = producto.foto;
+    imagenCarta.className = "card-img-top";
+    imagenCarta.alt = producto.nombre;
+
+    //Card
+    let carta = document.createElement("div");
+    carta.className = "card"
+    carta.append(imagenCarta);
+    carta.append(cuerpoCarta);
+
+    //Contenedor de las cards
+    let contenedorCarta = document.createElement("div");
+    contenedorCarta.className = "article-productos-container"
+    contenedorCarta.append(carta);
+
+    return contenedorCarta;
+}
+
+
+function hacerCards(){
+    productosConImpuestos.forEach(
+        (producto) => {
+            let contenedorCarta = crearCartas(producto);
+            articleProductos.append(contenedorCarta)
+        }
+    );
+}
+hacerCards();
+
+
+
+//ESTE CODIGO LO TENGO GUARDADO POR SI ME SIRVE PARA REALIZAR ACCIONES MEDIANTE AVANZAMOS EN EL CURSO
+/*
 //La idea de un buscador por precios de menor a mayor
 //produco < 1000
 const barato1 = productosConImpuestos.filter(productoBarato => productoBarato.precioConImpuestos < 1000);
@@ -190,5 +255,4 @@ while(seleccion != "NO"){
 
 const total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.precio * elemento.unidades,0);
 console.log("TOTAL: " + total);
-
-
+*/
