@@ -19,6 +19,7 @@ class ElementoCarrito{
 
 const productos = [];
 const carrito = [];
+let productoEncontrado;
 
 //productos ingresados al array
 productos.push(new Producto("torta selva negra","tortas",3100,`../fotos/selva-negra.jpg`,1));
@@ -135,8 +136,9 @@ function hacerCards(){
 }
 hacerCards();
 
-//----------------------------------------------------------------------
 
+//----------------------------------------------------------------------
+//Carrito
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const contenedorFooterCarrito = document.getElementById("footer")
 
@@ -201,9 +203,22 @@ function borrarProductoCarrito(elementoEliminado){
     elementosNoBorrados.forEach((elemento) => carrito.push(elemento))
 }
 
+//----------------------------------------------------------------------------------
+//BUSCADOR
+const botonBuscar = document.getElementById("btn");
+const inputBuscar = document.getElementById("buscar");
 
-
-
+botonBuscar.onclick = function(){
+    let buscar = inputBuscar.value
+    productoEncontrado = productosConImpuestos.find((producto) => producto.nombre == buscar)
+    console.log(buscar)
+    console.log(productoEncontrado)
+    if (productoEncontrado == undefined){
+        alert("Producto no encontrado");
+    }else{
+        alert("Producto encontrado: " + productoEncontrado.nombre);
+    }
+}
 
 
 
