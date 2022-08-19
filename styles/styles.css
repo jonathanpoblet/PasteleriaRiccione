@@ -40,6 +40,12 @@ body {
   border: none;
 }
 
+.nav .nav-container .nav-container-boton-carrito:focus {
+  border: #111111 2px solid;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .nav .nav-container .nav-container-menu .nav-container-menu-ul {
   padding-left: 0px;
 }

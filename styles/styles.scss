@@ -32,6 +32,12 @@ body{
                 border: none;
             }
         }
+        .nav-container-boton-carrito{
+            &:focus{
+                border: #111111 2px solid;
+                box-shadow: none;
+            }
+        }
         .nav-container-menu{
             .nav-container-menu-ul{
                 padding-left: 0px;
