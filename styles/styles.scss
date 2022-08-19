@@ -507,6 +507,62 @@ footer{
             }
         }
     }
+    .main-clientes{
+        .article-clientes{
+            .article-clientes-titulo{
+                font-size: 50px;
+            }
+            .article-clientes-presentacion{
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin-top: 100px;
+                margin-bottom: 150px;
+                width: 600px;
+                
+                .article-clientes-presentacion-img{
+                    width: 600px;
+                }
+                .article-clientes-presentacion-text{
+                    font-size: 22px;
+                    padding-left: 0px;
+                }
+            }
+            .article-clientes-testimonios{
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .main-clientes{
+        .article-clientes{
+            .article-clientes-titulo{
+                font-size: 40px;
+            }
+            .article-clientes-presentacion{
+                width: 400px;
+                .article-clientes-presentacion-img{
+                    width: 400px;
+                }
+                .article-clientes-presentacion-text{
+                    font-size: 22px;
+                }
+            }
+            .article-clientes-testimonios{
+                margin-top: 10px;
+                .card{
+                    margin: 30px;
+                    box-shadow: 0px 0px 10px 3px rgb(197, 196, 196);
+                    .progress-bar{
+                        background-color: #f59ced;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width:715px) {
@@ -537,6 +593,34 @@ footer{
                 }
             }
     
+        }
+    }
+}
+
+@media screen and (max-width:575px){
+    .main-clientes{
+        .article-clientes{
+            .article-clientes-titulo{
+                font-size: 30px;
+            }
+            .article-clientes-presentacion{
+                width: 300px;
+                margin-left: 20px;
+                margin-right: 20px;
+                .article-clientes-presentacion-img{
+                    width: 300px;
+                }
+                .article-clientes-presentacion-text{
+                    font-size: 18px;
+                }
+            }
+            .article-clientes-testimonios{
+                margin-top: 10px;
+                .card{
+                    width: 290px;
+                    margin: 30px 10px;
+                }
+            }
         }
     }
 }
