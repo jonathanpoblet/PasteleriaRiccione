@@ -529,6 +529,16 @@ footer{
             }
         }
     }
+    .main-nosotros{
+        .section-nosotros{
+            .article-nosotros-ubicacion{
+                .article-nosotros-ubicacion-mapa{
+                    width: 400px;
+                }
+            }
+    
+        }
+    }
 }
 
 @media screen and (max-width:530px) {
@@ -559,6 +569,33 @@ footer{
             .main-section-destacados{
                 .main-section-destacados-titulo{
                     font-size: 20px;
+                }
+            }
+        }
+    }
+    .main-nosotros{
+        .section-nosotros{
+            .article-nosotros{
+                .article-nosotros-carrousel{
+                    .article-nosotros-carrousel-titulo{
+                        font-size: 30px;
+                    }
+                    .article-nosotros-carrousel-texto{
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .article-nosotros-ubicacion{
+                .article-nosotros-ubicacion-subtitulo{
+                    font-size: 20px;
+                }
+                .article-nosotros-ubicacion-mapa{
+                    width: 300px;
+                    height: 270px;
+                }
+                .article-nosotros-ubicacion-mapa-texto{
+                    font-size: 17px;
                 }
             }
         }

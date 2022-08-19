@@ -19,7 +19,6 @@ class ElementoCarrito{
 
 const productos = [];
 const carrito = [];
-const productoEncontrado = [];
 
 
 //productos ingresados al array
@@ -118,13 +117,36 @@ function crearCartas(producto){
         let elementoExistente=carrito.find((elemento) => elemento.producto.identificador == producto.identificador)
         if(elementoExistente){
             elementoExistente.cantidad+=1;
-            alert(`INGRESASTE ${producto.nombre} AL CARRITO`)
         }else{
             let nuevoElementoCarrito = new ElementoCarrito(producto,1);
             carrito.push(nuevoElementoCarrito);
-            alert(`INGRESASTE ${producto.nombre} AL CARRITO`)
         }
         dibujarCarrito();
+
+        swal({
+            title: `${producto.nombre}`,
+            text: `Agregado al carrito de compra.`,
+            icon: "success",
+            buttons: {
+                cerrar: {
+                    text: "Cerrar",
+                    value: false
+                },
+                carrito: {
+                    text: "Ir a carrito",
+                    value: true
+                }
+            }
+        }).then((irACarrito) => {
+
+            if(irACarrito) {
+                //swal("Vamos al carrito!");
+                const myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {keyboard: true});
+                const modalToggle = document.getElementById('toggleMyModal'); 
+                myModal.show(modalToggle);
+
+            }
+        });
     }
 
 
@@ -209,12 +231,12 @@ function borrarProductoCarrito(elementoEliminado){
 
 //----------------------------------------------------------------------------------
 //BUSCADOR
-const botonBuscar = document.getElementById("btn");
+const botonBuscar = document.getElementById("botonBuscar");
 const inputBuscar = document.getElementById("buscar");
 
 botonBuscar.onclick = function(){
     let buscar = inputBuscar.value
-    productoEncontrado = productosConImpuestos.find((producto) => producto.nombre == buscar)
+    const productoEncontrado = productosConImpuestos.find((producto) => producto.nombre == buscar)
     console.log(buscar)
     console.log(productoEncontrado)
     if (productoEncontrado == undefined){
@@ -223,6 +245,7 @@ botonBuscar.onclick = function(){
         alert("Producto encontrado: " + productoEncontrado.nombre);
     }
 }
+
 
 /*//Ya tengo al rango de precio tomado
 let rangoPrecio = document.getElementById("customRange3")
