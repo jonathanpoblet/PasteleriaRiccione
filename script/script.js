@@ -19,7 +19,8 @@ class ElementoCarrito{
 
 const productos = [];
 const carrito = [];
-let productoEncontrado;
+const productoEncontrado = [];
+
 
 //productos ingresados al array
 productos.push(new Producto("torta selva negra","tortas",3100,`../fotos/selva-negra.jpg`,1));
@@ -62,6 +63,12 @@ const productosConImpuestos = productos.map(productos => {
     }
 })
 console.log(productosConImpuestos)
+
+//Buscador por categorias
+const productoCategoria1 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("TORTAS"));
+const productoCategoria2 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("MACARONS"));
+const productoCategoria3 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("CUPCAKES"));
+const productoCategoria4 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("BOX DULCE"));
 
 
 //-------------------------------------------------------------------------------------------
@@ -125,16 +132,15 @@ function crearCartas(producto){
     return contenedorCarta;
 }
 
-
-function hacerCards(){
-    productosConImpuestos.forEach(
+function hacerCards(productos){
+    productos.forEach(
         (producto) => {
             let contenedorCarta = crearCartas(producto);
             articleProductos.append(contenedorCarta)
         }
     );
 }
-hacerCards();
+hacerCards(productosConImpuestos);
 
 
 //----------------------------------------------------------------------
@@ -144,8 +150,6 @@ const contenedorFooterCarrito = document.getElementById("footer")
 
 function dibujarCarrito(){
     contenedorCarrito.innerHTML = "";
-
-    let suma = 0;
 
     carrito.forEach(
         (elemento) => {
@@ -164,8 +168,6 @@ function dibujarCarrito(){
 
             contenedorCarrito.append(renglonCarrito);
 
-            suma+= elemento.producto.precioConImpuestos * elemento.cantidad
-
             let inputCantidadProductos = document.getElementById(`cantidad-producto-${elemento.producto.identificador}`)
         
             inputCantidadProductos.addEventListener("change", (e) => {
@@ -182,13 +184,15 @@ function dibujarCarrito(){
         }
     );
 
+    const total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.producto.precioConImpuestos * elemento.cantidad,0);
+
     if(carrito.length == 0){
         contenedorFooterCarrito.innerHTML = `
         <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
         `;
     }else{
         contenedorFooterCarrito.innerHTML = `
-        <th scope="row" colspan="5">Total: $${suma}</th>
+        <th scope="row" colspan="5">Total: $${total}</th>
         `;
     }
 }
@@ -220,18 +224,13 @@ botonBuscar.onclick = function(){
     }
 }
 
+/*//Ya tengo al rango de precio tomado
+let rangoPrecio = document.getElementById("customRange3")
+rangoPrecio.onchange = () => {
+    alert("hola")
+}
 
-
-
-
-
-
-
-
-//ESTE CODIGO LO TENGO GUARDADO POR SI ME SIRVE PARA REALIZAR ACCIONES MEDIANTE AVANZAMOS EN EL CURSO
-/*
-//La idea de un buscador por precios de menor a mayor
-//produco < 1000
+//No esta puesto en uso
 const barato1 = productosConImpuestos.filter(productoBarato => productoBarato.precioConImpuestos < 1000);
 barato1.sort((a,b) => a.precioConImpuestos - b.precioConImpuestos);
 console.log(barato1);
@@ -253,125 +252,4 @@ barato5.sort((a,b) => a.precioConImpuestos - b.precioConImpuestos);
 console.log(barato5);
 
 
-//buscador de texto
-//tortas
-const productoCategoria1 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("TORTAS"));
-console.log(productoCategoria1);
-//macarons
-const productoCategoria2 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("MACARONS"));
-console.log(productoCategoria2);
-//cupcakes
-const productoCategoria3 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("CUPCAKES"));
-console.log(productoCategoria3);
-//box dulce
-const productoCategoria4 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("BOX DULCE"));
-console.log(productoCategoria4);
-
-
-//Interaccion con el usuario para agregar al carrito
-let carrito = [];
-let seleccion = prompt("Hola, desea comprar algun producto?(SI/NO)").toUpperCase();
-
-while(seleccion != "SI" && seleccion != "NO"){
-    alert("Por favor, ingresa SI o NO");
-    seleccion = prompt("Hola, desea comprar algun producto?(SI/NO)").toUpperCase();
-}
-
-if(seleccion == "SI"){
-    alert("Estos son todos los productos disposibles:");
-    let todosLosProductos = productosConImpuestos.map((producto) => producto.nombre + " $" + producto.precioConImpuestos)
-    alert(todosLosProductos.join("\n"));
-}
-else if(seleccion == "NO"){
-    alert("Si cambias de opinion, presiona F5");
-}
-
-while(seleccion != "NO"){
-    let producto = prompt("Agrega un producto a tu carrito").toUpperCase();
-    let precio = 0;
-
-    if(producto == "TORTA SELVA NEGRA" || producto == "CHOCOTORTA" || producto == "TORTA FRUTILLA CON CREMA" || producto == "TORTA DE CHOCOLATE" || producto == "TORTA DE ZANAHORIA" || producto == "TORTA DE LIMON" || producto == "TORTA CUMPLEAÑOS HOMBRE" || producto == "TORTA CUMPLEAÑOS MUJER" || producto == "MACARONS 3 UNIDADES" || producto == "MACARONS 6 UNIDADES" || producto == "MACARON 24 UNIDADES" || producto == "CUPCAKES CHOCOLATE X 6" || producto == "CUPCAKES VAINILLA X 6" || producto == "CUPCAKES PERSONALIZADOS X 6" || producto == "BOX DULCE DIA DEL PADRE" || producto == "BOX DULCE DIA DE LA MADRE" || producto == "BOX DULCE VARIADO" || producto == "BOX DULCE FRUTILLA" || producto == "BOX DULCE CUMPLEAÑOS"){
-        switch(producto){
-            case "TORTA SELVA NEGRA":
-                precio = 3751;
-                break;
-            case "CHOCOTORTA":
-                precio = 3267;
-                break;  
-            case "TORTA FRUTILLA CON CREMA":
-                precio = 3267;
-                break;  
-            case "TORTA DE CHOCOLATE":
-                precio = 3267;
-                break;  
-            case "TORTA DE ZANAHORIA":
-                precio = 3267;
-                break;  
-            case "TORTA DE LIMON":
-                precio = 3267;
-                break;  
-            case "TORTA CUMPLEAÑOS HOMBRE":
-                precio = 3267;
-                break;  
-            case "TORTA CUMPLEAÑOS MUJER":
-                precio = 3267;
-                break;  
-            case "MACARONS 3 UNIDADES":
-                precio = 3267;
-                break;  
-            case "MACARONS 6 UNIDADES":
-                 precio = 3267;
-                 break;  
-            case "MACARONS 24 UNIDADES":
-                precio = 3267;
-                break; 
-            case "CUPCAKES CHOCOLATE X 6":
-                precio = 3267;
-                break;  
-            case "CUPCAKES VAINILLA X 6":
-                precio = 3267;
-                break;   
-            case "CUPCAKES PERSONALIZAODS X 6":
-                precio = 3267;
-                break; 
-            case "BOX DULCE DIA DEL PADRE":
-                precio = 3267;
-                break;  
-            case "BOX DULCE DIA DE LA MADRE":
-                precio = 3267;
-                break;   
-            case "BOX DULCE VARIADO":
-                precio = 3267;
-                break;  
-            case "BOX DULCE FRUTILLA":
-                precio = 3267;
-                break; 
-            case "BOX DULCE CUMPLEAÑOS":
-                precio = 3267;
-                break;      
-            default:
-                break;
-        }
-        
-        let unidades = parseInt(prompt("¿Cuantas unidades quiere llevar?"));
-        carrito.push({producto,unidades,precio});
-        console.log(carrito);
-    }
-    else {
-        alert("No tenemos ese producto");
-    }
-
-    seleccion = prompt("Desea seguir comprando?").toUpperCase();
-    
-    while(seleccion === "NO"){
-        alert("Gracias por la compra! Tendras el carrito en tu consola.");
-        const direccion = (calle,numero,codigoPostal) => "Dirección: " + calle + " " + numero + " CP: " + codigoPostal;
-        console.log(direccion(prompt("Dime la calle que vivis para enviarte el pedido").toUpperCase(),prompt("Dime el numero de tu casa"),prompt("Dime tu codigo postal")));
-        carrito.forEach((carritoFinal) => console.log("producto: " + carritoFinal.producto + " unidades: " + carritoFinal.unidades + " total de producto $ " + carritoFinal.precio * carritoFinal.unidades));
-        break;
-    }
-}
-
-const total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.precio * elemento.unidades,0);
-console.log("TOTAL: " + total);
 */
