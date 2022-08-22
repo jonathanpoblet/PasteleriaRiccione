@@ -24,14 +24,14 @@ botonCategoria5.onclick = function(){
 }
 
 botonPrecioMin.onclick = function(){
-    let min = productosConImpuestos.sort((a,b) => a.precioConImpuestos - b.precioConImpuestos);
+    let min = productosConImpuestos2.sort((a,b) => a.precioConImpuestos - b.precioConImpuestos);
     articleProductos.innerHTML=""
     alert("Se mostraran todos los productos desde el menor precio hasta el mayor precio");
     hacerCards(min);
 }
 
 botonPrecioMax.onclick = function(){
-    let max = productosConImpuestos.sort((b,a) => a.precioConImpuestos - b.precioConImpuestos);
+    let max = productosConImpuestos2.sort((b,a) => a.precioConImpuestos - b.precioConImpuestos);
     articleProductos.innerHTML=""
     alert("Se mostraran todos los productos desde el mayor precio hasta el menor precio");
     hacerCards(max);
