@@ -1,5 +1,12 @@
 const seccionProductos = document.getElementById("seccion-productos").getElementsByClassName("article-productos");
 const articleProductos = seccionProductos[0];
+const botonCategoria1 = document.getElementById("botonCategoria1");
+const botonCategoria2 = document.getElementById("botonCategoria2");
+const botonCategoria3 = document.getElementById("botonCategoria3");
+const botonCategoria4 = document.getElementById("botonCategoria4");
+const botonCategoria5 = document.getElementById("botonCategoria5");
+const botonPrecioMin = document.getElementById("precioMinimo");
+const botonPrecioMax = document.getElementById("precioMaximo");
 
 function crearCartas(producto){
     let botonCarta = document.createElement("button");
@@ -74,3 +81,4 @@ function hacerCards(productos){
     );
 }
 hacerCards(productosConImpuestos);
+

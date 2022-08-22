@@ -337,24 +337,45 @@ footer {
   padding-top: 10px;
 }
 
-.main-productos .aside-productos .aside-productos-lista .aside-productos-lista-elementos .aside-productos-lista-elementos-link {
-  text-decoration: none;
+.main-productos .aside-productos .aside-productos-lista .aside-productos-lista-elementos .aside-productos-lista-elementos-button {
+  border: none;
+  background-color: #f8f8f8;
   color: #111111;
   opacity: 0.7;
   font-size: 17px;
 }
 
-.main-productos .aside-productos .aside-productos-lista .aside-productos-lista-elementos .aside-productos-lista-elementos-link:hover {
+.main-productos .aside-productos .aside-productos-lista .aside-productos-lista-elementos .aside-productos-lista-elementos-button:hover {
   text-decoration: underline;
   opacity: 1;
 }
 
 .main-productos .aside-productos .aside-productos-precio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-top: 20px;
+  margin-left: 10px;
 }
 
-.main-productos .aside-productos .aside-productos-rango {
-  color: #e433bd;
+.main-productos .aside-productos .aside-productos-precio .aside-productos-precio-titulo {
+  font-size: 18px;
+}
+
+.main-productos .aside-productos .aside-productos-precio .aside-productos-precio-boton {
+  border-radius: 15%;
+  padding: 1px 3px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  width: 55px;
+}
+
+.main-productos .aside-productos .aside-productos-precio .aside-productos-precio-boton:active {
+  background-color: #f0eeee;
 }
 
 .main-productos .section-productos {
@@ -377,6 +398,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 948px;
   background-color: #f8f8f8;
 }
 

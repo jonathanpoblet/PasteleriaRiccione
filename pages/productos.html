@@ -27,18 +27,9 @@
                       <li class="nav-item nav-container-menu-ul-li">
                           <a class="nav-link active nav-container-menu-ul-li-a" aria-current="page" href="../index.html">Inicio</a>
                       </li>
-                      <li class="nav-item dropdown nav-container-menu-ul-li">
-                        <a class="nav-link dropdown-toggle-center active nav-container-menu-ul-li-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Tienda
-                        </a>
-                        <ul class="dropdown-menu menu-2">
-                          <li class="menu-2-li"><a class="dropdown-item menu-2-li-a" href="productos.html">Todos</a></li>
-                          <li class="menu-2-li"><a class="dropdown-item menu-2-li-a" href="./productos-tortas.html">Tortas</a></li>
-                          <li class="menu-2-li"><a class="dropdown-item menu-2-li-a" href="./productos-macarons.html">Macarons</a></li>
-                          <li class="menu-2-li"><a class="dropdown-item menu-2-li-a" href="./productos-cupcakes.html">Cupcakes</a></li>
-                          <li class="menu-2-li"><a class="dropdown-item menu-2-li-a" href="./productos-box.html">Box dulce</a></li>
-                        </ul>
-                      </li>
+                      <li class="nav-item nav-container-menu-ul-li">
+                        <a class="nav-link active nav-container-menu-ul-li-a" aria-current="page" href="./productos.html">Tienda</a>
+                    </li>
                       <li class="nav-item nav-container-menu-ul-li">
                           <a class="nav-link active nav-container-menu-ul-li-a" aria-current="page" href="./clientes.html">Clientes</a>
                       </li>
@@ -101,14 +92,18 @@
         <h1 class="aside-productos-titulo"><a>PRODUCTOS</a></h1>
         <h2 class="aside-productos-subtitulo">Categorias</h2>
         <ul class="aside-productos-lista">
-          <li class="aside-productos-lista-elementos"><a class="aside-productos-lista-elementos-link" href="productos.html">Todos</a></li>
-          <li class="aside-productos-lista-elementos"><a class="aside-productos-lista-elementos-link" href="./productos-tortas.html">Tortas</a></li>
-          <li class="aside-productos-lista-elementos"><a class="aside-productos-lista-elementos-link" href="./productos-macarons.html">Macarons</a></li>
-          <li class="aside-productos-lista-elementos"><a class="aside-productos-lista-elementos-link" href="./productos-cupcakes.html">Cupcakes</a></li>
-          <li class="aside-productos-lista-elementos"><a class="aside-productos-lista-elementos-link" href="./productos-box.html">Box dulces</a></li>
+          <li class="aside-productos-lista-elementos"><button id="botonCategoria1" class="aside-productos-lista-elementos-button">Todos</button></li>
+          <li class="aside-productos-lista-elementos"><button id="botonCategoria2" class="aside-productos-lista-elementos-button">Tortas</button></li>
+          <li class="aside-productos-lista-elementos"><button id="botonCategoria3" class="aside-productos-lista-elementos-button">Macarons</button></li>
+          <li class="aside-productos-lista-elementos"><button id="botonCategoria4" class="aside-productos-lista-elementos-button">Cupcakes</button></li>
+          <li class="aside-productos-lista-elementos"><button id="botonCategoria5" class="aside-productos-lista-elementos-button">Box dulce</button></li>
         </ul>
-        <label for="customRange3" class="form-label aside-productos-precio">Precios</label>
-        <input type="range" class="form-range aside-productos-rango" min="0" max="5" step="1" id="customRange3">
+
+        <div class="aside-productos-precio">
+          <h3 class="aside-productos-precio-titulo">Mostrar productos precio:</h3>
+          <button class="aside-productos-precio-boton" id="precioMinimo">MIN</button>
+          <button class="aside-productos-precio-boton" id="precioMaximo">MAX</button>
+        </div>
       </aside>
 
 

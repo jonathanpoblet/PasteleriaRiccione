@@ -68,7 +68,7 @@ function dibujarCarrito(){
             alert("Tienes que agregar productos al carrito para finalizar la compra");
         }
         else{
-            alert("Compra finalizada, el producto llegara en 5 dias habiles");
+            alert("Compra finalizada, seras dirrigido al formulario de compra");
             carrito = [];
             dibujarCarrito();
         }
