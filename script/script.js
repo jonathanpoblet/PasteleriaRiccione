@@ -22,14 +22,12 @@ botonCategoria5.onclick = function(){
     articleProductos.innerHTML=""
     hacerCards(productosCategoria5);
 }
-
 botonPrecioMin.onclick = function(){
     let min = productosConImpuestos2.sort((a,b) => a.precioConImpuestos - b.precioConImpuestos);
     articleProductos.innerHTML=""
     alert("Se mostraran todos los productos desde el menor precio hasta el mayor precio");
     hacerCards(min);
 }
-
 botonPrecioMax.onclick = function(){
     let max = productosConImpuestos2.sort((b,a) => a.precioConImpuestos - b.precioConImpuestos);
     articleProductos.innerHTML=""
