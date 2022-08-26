@@ -3,7 +3,10 @@ const contenedorCarrito = document.getElementById("contenedorCarrito");
 const contenedorFooterCarrito = document.getElementById("footer");
 const finalCompra = document.getElementById("botonComprar");
 
-carrito = carrito=JSON.parse(sessionStorage.getItem("carrito")),dibujarCarrito() ?? [];
+if(sessionStorage.getItem("carrito") != null){
+    carrito=JSON.parse(sessionStorage.getItem("carrito"));
+    dibujarCarrito();
+}
 
 class ElementoCarrito{
     constructor(producto,cantidad){
