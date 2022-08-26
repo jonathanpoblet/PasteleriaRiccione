@@ -43,6 +43,7 @@ function crearCartas(producto){
             let nuevoElementoCarrito = new ElementoCarrito(producto,1);
             carrito.push(nuevoElementoCarrito);
         }
+         
         dibujarCarrito();
 
         swal({
@@ -65,7 +66,6 @@ function crearCartas(producto){
                 const myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {keyboard: true});
                 const modalToggle = document.getElementById('toggleMyModal'); 
                 myModal.show(modalToggle);
-
             }
         });
     }

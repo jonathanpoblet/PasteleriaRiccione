@@ -3,10 +3,7 @@ const contenedorCarrito = document.getElementById("contenedorCarrito");
 const contenedorFooterCarrito = document.getElementById("footer");
 const finalCompra = document.getElementById("botonComprar");
 
-if(sessionStorage.getItem("carrito") != null){
-    carrito=JSON.parse(sessionStorage.getItem("carrito"));
-    dibujarCarrito();
-}
+carrito = carrito=JSON.parse(sessionStorage.getItem("carrito")),dibujarCarrito() ?? [];
 
 class ElementoCarrito{
     constructor(producto,cantidad){
@@ -53,25 +50,10 @@ function dibujarCarrito(){
 
     const total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.producto.precioConImpuestos * elemento.cantidad,0);
 
-    if(carrito.length == 0){
-        contenedorFooterCarrito.innerHTML = `
-        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-        `;
-    }else{
-        contenedorFooterCarrito.innerHTML = `
-        <th scope="row" colspan="5">Total: $${total}</th>
-        `;
-    }
+    carrito.length == 0? contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="5">Total: $${total}</th>`;
 
     finalCompra.onclick = function(){
-        if(carrito.length == 0){
-            alert("Tienes que agregar productos al carrito para finalizar la compra");
-        }
-        else{
-            alert("Compra finalizada, seras dirrigido al formulario de compra");
-            carrito = [];
-            dibujarCarrito();
-        }
+        carrito.length == 0? alert("Tienes que agregar productos al carrito para finalizar la compra") : alert("Compra finalizada, seras dirrigido al formulario de compra"),carrito = [],dibujarCarrito();
     }
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
