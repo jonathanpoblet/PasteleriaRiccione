@@ -2,6 +2,8 @@ let carrito = [];
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const contenedorFooterCarrito = document.getElementById("footer");
 const finalCompra = document.getElementById("botonComprar");
+const formularioCompra = document.getElementById("formularioCompra");
+dibujarCarrito();
 
 if(sessionStorage.getItem("carrito") != null){
     carrito=JSON.parse(sessionStorage.getItem("carrito"));
@@ -51,16 +53,15 @@ function dibujarCarrito(){
         }
     );
 
-    const total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.producto.precioConImpuestos * elemento.cantidad,0);
+    let total = carrito.reduce((acumulador,elemento)=> acumulador + elemento.producto.precioConImpuestos * elemento.cantidad,0);
 
     carrito.length == 0? contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="5">Total: $${total}</th>`;
 
-    finalCompra.onclick = function(){
-        carrito.length == 0? alert("Tienes que agregar productos al carrito para finalizar la compra") : alert("Compra finalizada, seras dirrigido al formulario de compra"),carrito = [],dibujarCarrito();
-    }
-
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
 }
+
+
+
 
 function borrarProductoCarrito(elementoEliminado){
     const elementosNoBorrados = carrito.filter(

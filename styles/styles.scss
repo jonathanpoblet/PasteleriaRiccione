@@ -1,6 +1,6 @@
 *{
     margin: 0%;
-    padding: 0;
+    padding: 0%;
     box-sizing: border-box;
 }
 
@@ -226,7 +226,6 @@ footer{
     padding-top: 100px;
     .aside-productos{
         padding-top: 63px;
-        padding-left: 120px;
         .aside-productos-titulo{
             font-size: 30px;
         }
@@ -275,7 +274,6 @@ footer{
     }
 
     .section-productos{
-        padding-right: 120px;
         .article-productos{
             display: flex;
             flex-direction: row;

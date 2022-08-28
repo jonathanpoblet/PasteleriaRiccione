@@ -1,5 +1,4 @@
-const seccionProductos = document.getElementById("seccion-productos").getElementsByClassName("article-productos");
-const articleProductos = seccionProductos[0];
+
 const botonCategoria1 = document.getElementById("botonCategoria1");
 const botonCategoria2 = document.getElementById("botonCategoria2");
 const botonCategoria3 = document.getElementById("botonCategoria3");
@@ -46,29 +45,22 @@ function crearCartas(producto){
          
         dibujarCarrito();
 
-        swal({
-            title: `${producto.nombre}`,
-            text: `Agregado al carrito de compra.`,
-            icon: "success",
-            buttons: {
-                cerrar: {
-                    text: "Cerrar",
-                    value: false
-                },
-                carrito: {
-                    text: "Ir a carrito",
-                    value: true
-                }
-            }
-        }).then((irACarrito) => {
-
-            if(irACarrito) {
+        Swal.fire({
+            title: `Producto agregado al carrito!`,
+            html: `${producto.nombre}`,
+            showDenyButton: true,
+            confirmButtonText: 'Ir al carrito',
+            confirmButtonColor: "#198754",
+            denyButtonText: `Salir`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
                 const myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {keyboard: true});
                 const modalToggle = document.getElementById('toggleMyModal'); 
                 myModal.show(modalToggle);
             }
-        });
-    }
+        })
+            }
     return contenedorCarta;
 }
 

@@ -16,9 +16,6 @@
     <header>
         <nav class="navbar navbar-expand-lg nav">
             <div class="container-fluid nav-container">
-                <button type="button" class="btn btn-primary nav-container-carrito" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <i class="bi bi-cart-plus"></i>
-                </button>
                 <button class="navbar-toggler nav-container-boton-carrito" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,55 +34,10 @@
                         <a class="nav-link active nav-container-menu-ul-li-a" aria-current="page" href="./nosotros.html">Nosotros</a>
                     </li>
                   </ul>    
-                              
-                    <form class="d-flex nav-container-menu-form" role="search">
-                      <input class="form-control me-2 nav-container-menu-search" type="search" placeholder="Buscador" aria-label="Search">
-                      <button class="btn btn-outline-success nav-container-menu-boton" type="submit">Buscar</button>
-                    </form>
                 </div>
             </div>
         </nav>
     </header>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                          <th scope="col">ID</th>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Cantidad</th>
-                          <th scope="col">Precio</th>
-                          <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody id="contenedorCarrito">
-
-                    </tbody>
-                    <tfoot>
-                        <tr id="footer">
-                        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                <div class="row" id="cards"></div>
-            </div>
-        
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-            <button id="botonComprar" type="button" class="btn btn-success" data-bs-dismiss="modal">Finalizar compra</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <main class="main-nosotros">
       <section class="section-nosotros">
@@ -227,7 +179,6 @@
   </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../script/carrito.js"></script>
     
 </body>
 </html>

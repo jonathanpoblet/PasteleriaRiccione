@@ -1,6 +1,6 @@
 * {
   margin: 0%;
-  padding: 0;
+  padding: 0%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -316,7 +316,6 @@ footer {
 
 .main-productos .aside-productos {
   padding-top: 63px;
-  padding-left: 120px;
 }
 
 .main-productos .aside-productos .aside-productos-titulo {
@@ -376,10 +375,6 @@ footer {
 
 .main-productos .aside-productos .aside-productos-precio .aside-productos-precio-boton:active {
   background-color: #f0eeee;
-}
-
-.main-productos .section-productos {
-  padding-right: 120px;
 }
 
 .main-productos .section-productos .article-productos {

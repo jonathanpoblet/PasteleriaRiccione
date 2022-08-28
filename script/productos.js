@@ -1,4 +1,8 @@
 const productos = [];
+const mainProductos = document.getElementById("mainProductos");
+const asideProductos = document.getElementById("asideProductos");
+const seccionProductos = document.getElementById("seccion-productos").getElementsByClassName("article-productos");
+const articleProductos = seccionProductos[0];
 
 class Producto {
     constructor(nombre,categoria,precioCosto,foto,identificador){
