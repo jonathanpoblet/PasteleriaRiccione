@@ -54,8 +54,8 @@ finalCompra.onclick = function(){
         </div>
 
         
-        <button id="confirmarForm" type="button" class="btn btn-primary btn-block mb-4">ENVIAR</button>
-        <button id="cancelarForm" type="button" class="btn btn-primary btn-block mb-4">CANCELAR</button>
+        <button id="confirmarForm" type="submit" class="btn btn-primary btn-block mb-4">ENVIAR</button>
+        <button id="cancelarForm" type="submit" class="btn btn-primary btn-block mb-4">CANCELAR</button>
         `;
         const confirmarForm = document.getElementById("confirmarForm");
         const cancelarForm = document.getElementById("cancelarForm");
@@ -75,8 +75,11 @@ function ConfirmarForm(){
         showConfirmButton: false,
         timer: 1500
       });
-    carrito = [];
-    dibujarCarrito();
+      setTimeout(()=>{
+        carrito = [];
+        dibujarCarrito();
+        location.reload();
+      },2000)
     }
     else{
         Swal.fire('Tienes que agregar productos al carrito')
