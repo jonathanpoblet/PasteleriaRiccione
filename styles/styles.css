@@ -587,12 +587,12 @@ footer {
 
 .main-nosotros .section-nosotros .article-nosotros .article-nosotros-carrousel .article-nosotros-carrousel-titulo {
   font-size: 30px;
-  color: #ffffff;
+  color: #111111;
 }
 
 .main-nosotros .section-nosotros .article-nosotros .article-nosotros-carrousel .article-nosotros-carrousel-texto {
   font-size: 20px;
-  color: #ffffff;
+  color: #111111;
 }
 
 .main-nosotros .section-nosotros .article-nosotros-ubicacion {
@@ -608,6 +608,9 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 150px;
 }
 
@@ -853,31 +856,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 575px) {
-  .main-clientes .article-clientes .article-clientes-titulo {
-    font-size: 30px;
-  }
-  .main-clientes .article-clientes .article-clientes-presentacion {
-    width: 300px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .main-clientes .article-clientes .article-clientes-presentacion .article-clientes-presentacion-img {
-    width: 300px;
-  }
-  .main-clientes .article-clientes .article-clientes-presentacion .article-clientes-presentacion-text {
-    font-size: 18px;
-  }
-  .main-clientes .article-clientes .article-clientes-testimonios {
-    margin-top: 10px;
-  }
-  .main-clientes .article-clientes .article-clientes-testimonios .card {
-    width: 290px;
-    margin: 30px 10px;
-  }
-}
-
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 600px) {
   .main .main-section .main-section-fondo .main-section-fondo-titulo {
     font-size: 70px;
   }
@@ -903,6 +882,32 @@ footer {
   .main-nosotros .section-nosotros .article-nosotros .article-nosotros-carrousel .article-nosotros-carrousel-texto {
     font-size: 20px;
   }
+  .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima .article-nosotros-ubicacion-clima-foto {
+    width: 130px;
+  }
+  .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima .article-nosotros-ubicacion-clima-temperatura {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima .article-nosotros-ubicacion-clima-cielo {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-mensaje {
+    font-size: 17px;
+    margin: 0px 50px;
+    text-align: center;
+  }
+  .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-boton {
+    margin-top: 10px;
+    color: #ffffff;
+    border: black 1px solid;
+    -webkit-box-shadow: 0px -3px 10px 3px #eeecec;
+            box-shadow: 0px -3px 10px 3px #eeecec;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff00ea), to(#f59ced));
+    background: linear-gradient(#ff00ea, #f59ced);
+  }
   .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-subtitulo {
     font-size: 20px;
   }
@@ -912,6 +917,30 @@ footer {
   }
   .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-mapa-texto {
     font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .main-clientes .article-clientes .article-clientes-titulo {
+    font-size: 30px;
+  }
+  .main-clientes .article-clientes .article-clientes-presentacion {
+    width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .main-clientes .article-clientes .article-clientes-presentacion .article-clientes-presentacion-img {
+    width: 300px;
+  }
+  .main-clientes .article-clientes .article-clientes-presentacion .article-clientes-presentacion-text {
+    font-size: 18px;
+  }
+  .main-clientes .article-clientes .article-clientes-testimonios {
+    margin-top: 10px;
+  }
+  .main-clientes .article-clientes .article-clientes-testimonios .card {
+    width: 290px;
+    margin: 30px 10px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
