@@ -654,6 +654,16 @@ footer {
   font-size: 20px;
 }
 
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-boton {
+  margin-top: 10px;
+  color: #ffffff;
+  border: black 1px solid;
+  -webkit-box-shadow: 0px -3px 10px 3px #eeecec;
+          box-shadow: 0px -3px 10px 3px #eeecec;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff00ea), to(#f59ced));
+  background: linear-gradient(#ff00ea, #f59ced);
+}
+
 .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-mapa {
   width: 550px;
   height: 350px;
