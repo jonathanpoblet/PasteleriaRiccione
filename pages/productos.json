@@ -15,14 +15,14 @@
     {
         "nombre": "BOX DULCE PADRE",
         "categoria":"BOX DULCE",
-        "precio": 2000,
+        "precio": 2300,
         "foto": "../fotos/boxdulce-padre.jpg",
         "identificador": 3
     },
     {
         "nombre": "BOX DULCE MADRE",
         "categoria":"BOX DULCE",
-        "precio": 2000,
+        "precio": 2300,
         "foto": "../fotos/boxdulce-madre.jpg",
         "identificador": 4
     },
@@ -41,14 +41,14 @@
         "identificador": 6
     },
     {
-        "nombre": "TORTA CUMPLEAÑOS HOMBRE",
+        "nombre": "TORTA HOMBRE",
         "categoria":"TORTAS",
         "precio": 4100,
         "foto": "../fotos/torta-cumpleaños.jpg",
         "identificador": 7
     },
     {
-        "nombre": "TORTA CUMPLEAÑOS MUJER",
+        "nombre": "TORTA MUJER",
         "categoria":"TORTAS",
         "precio": 4100,
         "foto": "../fotos/torta-cumpleaños-mujer.jpg",
@@ -76,7 +76,7 @@
         "identificador": 11
     },
     {
-        "nombre": "CUPCAKES CHOCOLATE X 6",
+        "nombre": "CUPCAKES CHOCO X 6",
         "categoria":"CUPCAKES",
         "precio": 850,
         "foto": "../fotos/cupcakes-6unidades.jpg",
@@ -104,7 +104,7 @@
         "identificador": 15
     },
     {
-        "nombre": "TORTA FRUTILLA CON CREMA",
+        "nombre": "TORTA CON FRUTILLAS",
         "categoria":"TORTAS",
         "precio": 2400,
         "foto": "../fotos/torta-frutilla.jpg",
@@ -120,7 +120,7 @@
     {
         "nombre": "BOX DULCE CUMPLEAÑOS",
         "categoria":"BOX DULCE",
-        "precio": 2000,
+        "precio": 2200,
         "foto": "../fotos/boxdulcecumpleaños.jpg",
         "identificador": 18
     },

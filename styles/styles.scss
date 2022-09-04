@@ -223,7 +223,7 @@ footer{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    padding-top: 100px;
+    padding: 100px 100px 0px 150px;
     .aside-productos{
         padding-top: 63px;
         .aside-productos-titulo{
@@ -470,7 +470,9 @@ footer{
 }
 
 
-@media screen and (max-width:1223px) {
+
+
+@media screen and (max-width:1250px) {
     .main{
         .main-section{
             .main-section-info{
@@ -559,6 +561,13 @@ footer{
             }
         }
     }
+    .main-productos{
+        .section-productos{
+            .article-productos{
+                width: 670px;
+            }
+        }
+    }  
     .main-clientes{
         .article-clientes{
             .article-clientes-titulo{
@@ -586,6 +595,16 @@ footer{
             }
         }
     }
+}
+
+@media screen and (max-width:910px) {
+    .main-productos{
+        .section-productos{
+            .article-productos{
+                width: 400px;
+            }
+        }
+    }  
 }
 
 @media screen and (max-width:767px) {
@@ -681,6 +700,62 @@ footer{
             }
         }
     }
+    .main-productos{
+        .aside-productos{
+            .aside-productos-titulo{
+                font-size: 20px;
+            }
+            .aside-productos-subtitulo{
+                font-size: 17px;
+            }
+            .aside-productos-lista{
+                .aside-productos-lista-elementos{
+                    .aside-productos-lista-elementos-button{
+                        font-size: 15px;
+                    }
+                }
+            }
+            .aside-productos-precio{
+                padding-top: 20px;
+                margin-left: 10px;
+                .aside-productos-precio-titulo{
+                    font-size: 15px;
+                }
+                .aside-productos-precio-boton{
+                    width: 80px;
+                    font-size: 12px;
+                }
+            }
+        }
+    
+        .section-productos{
+            .article-productos{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                background-color: #f8f8f8;
+                .article-productos-container{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                    margin-top: 70px;
+                    .card{
+                        height: 21rem;
+                        width: 14rem;
+                        .card-img-top{
+                            width: 222px;
+                            height: 214px;
+                        }
+                    }
+                }
+            }
+        }
+    }  
     .main-nosotros{
         .section-nosotros{
             .article-nosotros{
@@ -762,6 +837,17 @@ footer{
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width:470px) {
+    .main-productos{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 50px 0px 50px;
     }
 }
 

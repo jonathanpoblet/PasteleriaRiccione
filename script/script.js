@@ -36,14 +36,14 @@ botonCategoria5.onclick = function(){
 botonPrecioMin.onclick = function(){
     let min = productos.sort((a,b) => a.precio - b.precio);
     articleProductos.innerHTML=""
-    botonPrecioMin.style.backgroundColor = "#ff00ea"
+    botonPrecioMin.style.backgroundColor = "#ff59f1"
     botonPrecioMax.style.backgroundColor = "white"
     hacerCards(min);
 }
 botonPrecioMax.onclick = function(){
     let max = productos.sort((b,a) => a.precio - b.precio);
     articleProductos.innerHTML=""
-    botonPrecioMax.style.backgroundColor = "#ff00ea"
+    botonPrecioMax.style.backgroundColor = "#ff59f1"
     botonPrecioMin.style.backgroundColor = "white"
     hacerCards(max);
 }
