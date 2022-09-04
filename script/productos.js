@@ -18,7 +18,7 @@ obtenerProductos();
 function crearCartas(producto){
     let botonCarta = document.createElement("button");
     botonCarta.className = "btn btn-outline-success card-boton"
-    botonCarta.innerText = "Agregar al carrito"
+    botonCarta.innerText = "Agregar"
 
     let cuerpoCarta = document.createElement("div");
     cuerpoCarta.className = "card-body"
