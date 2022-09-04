@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg nav">
             <div class="container-fluid nav-container">
-                <button class="navbar-toggler nav-container-boton-carrito" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler nav-container-boton" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse nav-container-menu" id="navbarScroll">
@@ -36,18 +36,18 @@
                     </ul>         
                     
                 </div>
-                <button type="button" class="btn btn-primary nav-container-carrito" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button id="carrito" type="button" class="btn btn-primary nav-container-carrito" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class="bi bi-cart-plus"></i>
                 </button>
             </div>
         </nav>
     </header>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade  modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+            <h5 class="modal-title" id="exampleModalLabel">CARRITO</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -96,9 +96,9 @@
         </ul>
 
         <div class="aside-productos-precio">
-          <h3 class="aside-productos-precio-titulo">Mostrar todos precio:</h3>
-          <button class="aside-productos-precio-boton" id="precioMinimo">MIN</button>
-          <button class="aside-productos-precio-boton" id="precioMaximo">MAX</button>
+          <h3 class="aside-productos-precio-titulo">Ordenar todos por precio:</h3>
+          <button class="aside-productos-precio-boton" id="precioMinimo">MINIMO</button>
+          <button class="aside-productos-precio-boton" id="precioMaximo">MAXIMO</button>
         </div>
       </aside>
 
@@ -110,6 +110,7 @@
       </section>
 
       <form id="formularioCompra">
+    
       </form>
     </main>
 
@@ -200,8 +201,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../script/productos.js"></script>
-    <script src="../script/cards.js"></script>
     <script src="../script/carrito.js"></script>
+    <script src="../script/formulario.js"></script>
     <script src="../script/script.js"></script>
 </body>
 </html>

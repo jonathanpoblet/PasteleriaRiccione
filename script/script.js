@@ -1,3 +1,54 @@
+const botonCategoria1 = document.getElementById("botonCategoria1");
+const botonCategoria2 = document.getElementById("botonCategoria2");
+const botonCategoria3 = document.getElementById("botonCategoria3");
+const botonCategoria4 = document.getElementById("botonCategoria4");
+const botonCategoria5 = document.getElementById("botonCategoria5");
+const botonPrecioNormal = document.getElementById("precioNormal");
+const botonPrecioMin = document.getElementById("precioMinimo");
+const botonPrecioMax = document.getElementById("precioMaximo");
+
+botonCategoria1.onclick = function(){
+    articleProductos.innerHTML=""
+    hacerCards(productos);
+}
+botonCategoria2.onclick = function(){
+    const productosCategoria2 = productos.filter(productoCat => productoCat.categoria.includes("TORTAS"));
+    articleProductos.innerHTML=""
+    hacerCards(productosCategoria2);
+}
+botonCategoria3.onclick = function(){
+    const productosCategoria3 = productos.filter(productoCat => productoCat.categoria.includes("MACARONS"));
+    articleProductos.innerHTML=""
+    hacerCards(productosCategoria3);
+}
+botonCategoria4.onclick = function(){
+    const productosCategoria4 = productos.filter(productoCat => productoCat.categoria.includes("CUPCAKES"));
+    articleProductos.innerHTML=""
+    hacerCards(productosCategoria4);
+}
+botonCategoria5.onclick = function(){
+    const productosCategoria5 = productos.filter(productoCat => productoCat.categoria.includes("BOX DULCE"));
+    articleProductos.innerHTML=""
+    hacerCards(productosCategoria5);
+}
+
+
+botonPrecioMin.onclick = function(){
+    let min = productos.sort((a,b) => a.precio - b.precio);
+    articleProductos.innerHTML=""
+    botonPrecioMin.style.backgroundColor = "#ff00ea"
+    botonPrecioMax.style.backgroundColor = "white"
+    hacerCards(min);
+}
+botonPrecioMax.onclick = function(){
+    let max = productos.sort((b,a) => a.precio - b.precio);
+    articleProductos.innerHTML=""
+    botonPrecioMax.style.backgroundColor = "#ff00ea"
+    botonPrecioMin.style.backgroundColor = "white"
+    hacerCards(max);
+}
+
+
 finalCompra.onclick = function(){
     carrito.length == 0? 
     Swal.fire({icon: 'error',title: 'Tienes el carrito vacio!'}):
@@ -18,134 +69,8 @@ finalCompra.onclick = function(){
     }
     }).then((result) => {
     if (result.dismiss === Swal.DismissReason.timer) {
-        asideProductos.innerHTML=""
-        asideProductos.style= "width:0px; height:0px;"
-        asideProductos.className= "m-0 p-0"
-        seccionProductos.innerHTML=""
-        seccionProductos.style= "width:0px; height:0px;"
-        seccionProductos.className= "m-0 p-0 pe-0"
-        articleProductos.innerHTML=""
-        articleProductos.style= "width:0px; height:0px;"
-        articleProductos.className= "m-0 p-0"
-        formularioCompra.innerHTML= `
-        <div class="row mb-4">
-          <div class="col">
-            <div class="form-outline">
-              <input type="text" id="form3Example1" class="form-control" required />
-              <label class="form-label mt-2" for="form3Example1">Nombre</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-outline">
-              <input type="text" id="form3Example2" class="form-control" required />
-              <label class="form-label mt-2" for="form3Example2">Apellido</label>
-            </div>
-          </div>
-        </div>
-      
-        <div class="form-outline mb-4">
-          <input type="email" id="form3Example3" class="form-control" required />
-          <label class="form-label mt-2" for="form3Example3">Email</label>
-        </div>
-      
-        <div class="form-outline mb-4">
-          <input type="text" id="form3Example4" class="form-control" required />
-          <label class="form-label mt-2" for="form3Example4">Dirreción</label>
-        </div>
-
-        
-        <button id="confirmarForm" type="submit" class="btn btn-primary btn-block mb-4">ENVIAR</button>
-        <button id="cancelarForm" type="submit" class="btn btn-primary btn-block mb-4">CANCELAR</button>
-        `;
-        const confirmarForm = document.getElementById("confirmarForm");
-        const cancelarForm = document.getElementById("cancelarForm");
-        confirmarForm.addEventListener("click", ConfirmarForm);
-        cancelarForm.addEventListener("click",CancelarForm);
+            crearForm();
     }
     })
-}
-
-function ConfirmarForm(){
-    if(carrito.length != 0){
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Compra realizada',
-        html:'Tu compra llegara en 5 dias habiles',
-        showConfirmButton: false,
-        timer: 1500
-      });
-      setTimeout(()=>{
-        carrito = [];
-        dibujarCarrito();
-        location.reload();
-      },2000)
-    }
-    else{
-        Swal.fire('Tienes que agregar productos al carrito')
-    }
-}
-
-function CancelarForm(){
-    if(carrito.length != 0){
-    Swal.fire({
-        title: 'Estas seguro?',
-        text: "No podras revertir esto",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Salir',
-        confirmButtonText: 'Si, elminar compra!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Eliminado!',
-            'Tu compra fue eliminada.',
-            'success'
-          )
-        }
-      });
-    carrito = [];
-    dibujarCarrito();
-    }
-    else{
-        Swal.fire('Tienes que agregar productos al carrito')
-    }
-}
-
-botonCategoria1.onclick = function(){
-    articleProductos.innerHTML=""
-    hacerCards(productosConImpuestos);
-}
-botonCategoria2.onclick = function(){
-    const productosCategoria2 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("TORTAS"));
-    articleProductos.innerHTML=""
-    hacerCards(productosCategoria2);
-}
-botonCategoria3.onclick = function(){
-    const productosCategoria3 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("MACARONS"));
-    articleProductos.innerHTML=""
-    hacerCards(productosCategoria3);
-}
-botonCategoria4.onclick = function(){
-    const productosCategoria4 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("CUPCAKES"));
-    articleProductos.innerHTML=""
-    hacerCards(productosCategoria4);
-}
-botonCategoria5.onclick = function(){
-    const productosCategoria5 = productosConImpuestos.filter(productoCat => productoCat.categoria.includes("BOX DULCE"));
-    articleProductos.innerHTML=""
-    hacerCards(productosCategoria5);
-}
-botonPrecioMin.onclick = function(){
-    let min = productosConImpuestos2.sort((a,b) => a.precioConImpuestos - b.precioConImpuestos);
-    articleProductos.innerHTML=""
-    hacerCards(min);
-}
-botonPrecioMax.onclick = function(){
-    let max = productosConImpuestos2.sort((b,a) => a.precioConImpuestos - b.precioConImpuestos);
-    articleProductos.innerHTML=""
-    hacerCards(max);
 }
 

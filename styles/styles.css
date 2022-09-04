@@ -21,26 +21,7 @@ body {
   z-index: 200;
 }
 
-.nav .nav-container .nav-container-carrito {
-  font-size: 17px;
-  margin-right: 10px;
-  color: white;
-  border: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fd96f5), to(#ff00ea));
-  background: linear-gradient(#fd96f5, #ff00ea);
-}
-
-.nav .nav-container .nav-container-carrito:hover {
-  color: #111111;
-}
-
-.nav .nav-container .nav-container-carrito:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-}
-
-.nav .nav-container .nav-container-boton-carrito:focus {
+.nav .nav-container .nav-container-boton:focus {
   border: #111111 2px solid;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -95,6 +76,25 @@ body {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: black 2px solid;
+}
+
+.nav .nav-container .nav-container-carrito {
+  font-size: 17px;
+  margin-right: 10px;
+  color: white;
+  border: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fd96f5), to(#ff00ea));
+  background: linear-gradient(#fd96f5, #ff00ea);
+}
+
+.nav .nav-container .nav-container-carrito:hover {
+  color: #111111;
+}
+
+.nav .nav-container .nav-container-carrito:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
 }
 
 .menu-2 {
@@ -366,11 +366,12 @@ footer {
 }
 
 .main-productos .aside-productos .aside-productos-precio .aside-productos-precio-boton {
-  border-radius: 15%;
+  border-radius: 10%;
   padding: 1px 3px;
   margin-top: 10px;
   background-color: #ffffff;
-  width: 55px;
+  width: 88px;
+  font-size: 13px;
 }
 
 .main-productos .aside-productos .aside-productos-precio .aside-productos-precio-boton:active {
@@ -610,8 +611,47 @@ footer {
   padding-top: 150px;
 }
 
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-titulo {
+  text-align: center;
+}
+
 .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-subtitulo {
   text-align: center;
+}
+
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima .article-nosotros-ubicacion-clima-foto {
+  width: 130px;
+}
+
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima .article-nosotros-ubicacion-clima-temperatura {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-clima .article-nosotros-ubicacion-clima-cielo {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-mensaje {
+  font-size: 20px;
 }
 
 .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-mapa {

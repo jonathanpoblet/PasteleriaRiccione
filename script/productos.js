@@ -1,62 +1,89 @@
-const productos = [];
 const mainProductos = document.getElementById("mainProductos");
 const asideProductos = document.getElementById("asideProductos");
 const seccionProductos = document.getElementById("seccion-productos").getElementsByClassName("article-productos");
 const articleProductos = seccionProductos[0];
+let productos = [];
 
-class Producto {
-    constructor(nombre,categoria,precioCosto,foto,identificador){
-        this.nombre = nombre.toUpperCase();
-        this.categoria = categoria.toUpperCase();
-        this.precioCosto = parseFloat(precioCosto);
-        this.foto = foto
-        this.identificador = identificador
-    }
+
+async function obtenerProductos(){
+    const URLGET = "productos.json";
+    const respuesta = await fetch(URLGET);
+    const data = await respuesta.json();
+    productos = data;
+    console.log(productos)
+    hacerCards(productos);
 }
-productos.push(new Producto("torta selva negra","tortas",3100,`../fotos/selva-negra.jpg`,1));
-productos.push(new Producto("chocotorta","tortas",2700,`../fotos/chocotorta.jpg`,2));
-productos.push(new Producto("box dulce padre","box dulce",2000,`../fotos/boxdulce-padre.jpg`,3));
-productos.push(new Producto("box dulce madre","box dulce", 2000,`../fotos/boxdulce-madre.jpg`,4));
-productos.push(new Producto("torta de zanahoria","tortas",2100,`../fotos/torta-zanahoria.jpg`,5));
-productos.push(new Producto("box dulce frutilla","box dulce", 2000,`../fotos/boxdulce-frutilla.jpg`,6));
-productos.push(new Producto("torta cumpleaños hombre","tortas",4100,`../fotos/torta-cumpleaños.jpg`,7));
-productos.push(new Producto("torta cumpleaños mujer","tortas",4100,`../fotos/torta-cumpleaños-mujer.jpg`,8));
-productos.push(new Producto("torta de limon","tortas",1850,`../fotos/bizcochuelo-limon.jpg`,10));
-productos.push(new Producto("macarons 6 unidades","macarons",500,`../fotos/macarons-6.jpg`,11));
-productos.push(new Producto("cupcakes chocolate x 6","cupcakes",850,`../fotos/cupcakes-6unidades.jpg`,12));
-productos.push(new Producto("macarons 3 unidades","macarons",300,`../fotos/macaron-3.jpg`,9));
-productos.push(new Producto("cupcakes vainilla x 6","cupcakes",850,`../fotos/cupcakes-6unidades-vainilla.jpg`,13));
-productos.push(new Producto("cupcakes mix x 6","cupcakes",850,`../fotos/cupcakes-personalizados.jpg`,14));
-productos.push(new Producto("box dulce variado","box dulce", 2000,`../fotos/boxdulce-variado.jpeg`,15));
-productos.push(new Producto("torta frutilla con crema","tortas",2400,`../fotos/torta-frutilla.jpg`,16));
-productos.push(new Producto("torta de chocolate","tortas",2400,`../fotos/torta-de-chocolate.jpg`,17));
-productos.push(new Producto("box dulce cumpleaños","box dulce", 2000,`../fotos/boxdulcecumpleaños.jpg`,18));
-productos.push(new Producto("macarons 24 unidades","macarons", 2050,`../fotos/macaron-24.jpg`,19));
+obtenerProductos();
 
-const productosConImpuestos = productos.map(productos => {
-    return {
-        nombre: productos.nombre,
-        categoria: productos.categoria,
-        precioConImpuestos: parseFloat(productos.precioCosto * 1.21),
-        foto: productos.foto,
-        identificador: productos.identificador
+function crearCartas(producto){
+    let botonCarta = document.createElement("button");
+    botonCarta.className = "btn btn-outline-success card-boton"
+    botonCarta.innerText = "Agregar al carrito"
+
+    let cuerpoCarta = document.createElement("div");
+    cuerpoCarta.className = "card-body"
+    cuerpoCarta.innerHTML = `
+        <h3 class="card-text">${producto.nombre}</h3>
+        <p class="card-text">$${producto.precio}</p>
+    `;
+    cuerpoCarta.append(botonCarta);
+
+    let imagenCarta = document.createElement("img");
+    imagenCarta.src = producto.foto;
+    imagenCarta.className = "card-img-top";
+    imagenCarta.alt = producto.nombre;
+
+    let carta = document.createElement("div");
+    carta.className = "card"
+    carta.append(imagenCarta);
+    carta.append(cuerpoCarta);
+
+    let contenedorCarta = document.createElement("div");
+    contenedorCarta.className = "article-productos-container"
+    contenedorCarta.append(carta);
+
+    botonCarta.onclick = () => {
+        let elementoExistente=carrito.find((elemento) => elemento.producto.identificador == producto.identificador)
+        if(elementoExistente){
+            elementoExistente.cantidad++;
+        }else{
+            let nuevoElementoCarrito = new ElementoCarrito(producto,1);
+            carrito.push(nuevoElementoCarrito);
+        }
+         
+        dibujarCarrito();
+
+        Swal.fire({
+            title: `Producto agregado al carrito!`,
+            html: `${producto.nombre}`,
+            showDenyButton: true,
+            confirmButtonText: 'Ir al carrito',
+            confirmButtonColor: "#198754",
+            denyButtonText: `Salir`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                const myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {keyboard: true});
+                const modalToggle = document.getElementById('toggleMyModal'); 
+                myModal.show(modalToggle);
+            }
+        })
     }
-})
+    return contenedorCarta;
+}
 
-//Lo uso para el buscador de min y maximo
-const productosConImpuestos2 = productos.map(productos => {
-    return {
-        nombre: productos.nombre,
-        categoria: productos.categoria,
-        precioConImpuestos: parseFloat(productos.precioCosto * 1.21),
-        foto: productos.foto,
-        identificador: productos.identificador
-    }
-})
+function hacerCards(productos){
+    productos.forEach(
+        (producto) => {
+            let contenedorCarta = crearCartas(producto);
+            articleProductos.append(contenedorCarta)
+        }
+    );
+}
 
-console.log(productosConImpuestos)
-console.log(productosConImpuestos2)
-localStorage.setItem("productos", JSON.stringify(productosConImpuestos));
+
+
+localStorage.setItem("productos", JSON.stringify(productos));
 
 
 

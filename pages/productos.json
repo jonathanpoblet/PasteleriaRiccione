@@ -1,0 +1,134 @@
+[{
+        "nombre": "TORTA SELVA NEGRA",
+        "categoria":"TORTAS",
+        "precio": 3100,
+        "foto": "../fotos/selva-negra.jpg",
+        "identificador": 1
+    },
+    {
+        "nombre": "CHOCOTORTA",
+        "categoria":"TORTAS",
+        "precio": 2700,
+        "foto": "../fotos/chocotorta.jpg",
+        "identificador": 2
+    },
+    {
+        "nombre": "BOX DULCE PADRE",
+        "categoria":"BOX DULCE",
+        "precio": 2000,
+        "foto": "../fotos/boxdulce-padre.jpg",
+        "identificador": 3
+    },
+    {
+        "nombre": "BOX DULCE MADRE",
+        "categoria":"BOX DULCE",
+        "precio": 2000,
+        "foto": "../fotos/boxdulce-madre.jpg",
+        "identificador": 4
+    },
+    {
+        "nombre": "TORTA DE ZANAHORIA",
+        "categoria":"TORTAS",
+        "precio": 2400,
+        "foto": "../fotos/torta-zanahoria.jpg",
+        "identificador": 5
+    },
+    {
+        "nombre": "BOX DULCE FRUTILLA",
+        "categoria":"BOX DULCE",
+        "precio": 2000,
+        "foto": "../fotos/boxdulce-frutilla.jpg",
+        "identificador": 6
+    },
+    {
+        "nombre": "TORTA CUMPLEAÑOS HOMBRE",
+        "categoria":"TORTAS",
+        "precio": 4100,
+        "foto": "../fotos/torta-cumpleaños.jpg",
+        "identificador": 7
+    },
+    {
+        "nombre": "TORTA CUMPLEAÑOS MUJER",
+        "categoria":"TORTAS",
+        "precio": 4100,
+        "foto": "../fotos/torta-cumpleaños-mujer.jpg",
+        "identificador": 8
+    },
+    {
+        "nombre": "MACARONS 3 UNIDADES",
+        "categoria":"MACARONS",
+        "precio": 300,
+        "foto": "../fotos/macaron-3.jpg",
+        "identificador": 9
+    },
+    {
+        "nombre": "TORTA DE LIMON",
+        "categoria":"TORTAS",
+        "precio": 1850,
+        "foto": "../fotos/bizcochuelo-limon.jpg",
+        "identificador": 10
+    },
+    {
+        "nombre": "MACARONS 6 UNIDADES",
+        "categoria":"MACARONS",
+        "precio": 500,
+        "foto": "../fotos/macarons-6.jpg",
+        "identificador": 11
+    },
+    {
+        "nombre": "CUPCAKES CHOCOLATE X 6",
+        "categoria":"CUPCAKES",
+        "precio": 850,
+        "foto": "../fotos/cupcakes-6unidades.jpg",
+        "identificador": 12
+    },
+    {
+        "nombre": "CUPCAKES VAINILLA X 6",
+        "categoria":"CUPCAKES",
+        "precio": 850,
+        "foto": "../fotos/cupcakes-6unidades-vainilla.jpg",
+        "identificador": 13
+    },
+    {
+        "nombre": "CUPCAKES MIX X 6",
+        "categoria":"CUPCAKES",
+        "precio": 850,
+        "foto": "../fotos/cupcakes-personalizados.jpg",
+        "identificador": 14
+    },
+    {
+        "nombre": "BOX DULCE VARIADO",
+        "categoria":"BOX DULCE",
+        "precio": 2000,
+        "foto": "../fotos/boxdulce-variado.jpeg",
+        "identificador": 15
+    },
+    {
+        "nombre": "TORTA FRUTILLA CON CREMA",
+        "categoria":"TORTAS",
+        "precio": 2400,
+        "foto": "../fotos/torta-frutilla.jpg",
+        "identificador": 16
+    },
+    {
+        "nombre": "TORTA DE CHOCOLATE",
+        "categoria":"TORTAS",
+        "precio": 2400,
+        "foto": "../fotos/torta-de-chocolate.jpg",
+        "identificador": 17
+    },
+    {
+        "nombre": "BOX DULCE CUMPLEAÑOS",
+        "categoria":"BOX DULCE",
+        "precio": 2000,
+        "foto": "../fotos/boxdulcecumpleaños.jpg",
+        "identificador": 18
+    },
+    {
+        "nombre": "MACARONS 24 UNIDADES",
+        "categoria":"MACARONS",
+        "precio": 2050,
+        "foto": "../fotos/macaron-24.jpg",
+        "identificador": 19
+    }
+]

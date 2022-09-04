@@ -18,21 +18,7 @@ body{
     background: linear-gradient(#ff00ea, #f59ced);
     z-index: 200;
     .nav-container{
-        .nav-container-carrito{
-            font-size: 17px;
-            margin-right: 10px ;
-            color: white;
-            border: none;
-            background: linear-gradient(#fd96f5,#ff00ea);
-            &:hover{
-                color: #111111;
-            }
-            &:focus{
-                box-shadow: none;
-                border: none;
-            }
-        }
-        .nav-container-boton-carrito{
+        .nav-container-boton{
             &:focus{
                 border: #111111 2px solid;
                 box-shadow: none;
@@ -78,6 +64,20 @@ body{
                     box-shadow: none;
                     border: black 2px solid;
                 }
+            }
+        }
+        .nav-container-carrito{
+            font-size: 17px;
+            margin-right: 10px ;
+            color: white;
+            border: none;
+            background: linear-gradient(#fd96f5,#ff00ea);
+            &:hover{
+                color: #111111;
+            }
+            &:focus{
+                box-shadow: none;
+                border: none;
             }
         }
     }
@@ -261,11 +261,12 @@ footer{
                 font-size: 18px;
             }
             .aside-productos-precio-boton{
-                border-radius: 15%;
+                border-radius: 10%;
                 padding: 1px 3px;
                 margin-top: 10px;
                 background-color: #ffffff;
-                width: 55px;
+                width: 88px;
+                font-size: 13px;
                 &:active{
                     background-color: #f0eeee;
                 }
@@ -418,8 +419,32 @@ footer{
             flex-wrap: nowrap;
             align-items: center;
             padding-top: 150px;
+            .article-nosotros-ubicacion-titulo{
+                text-align: center;
+            }
             .article-nosotros-ubicacion-subtitulo{
                 text-align: center;
+            }
+            .article-nosotros-ubicacion-clima{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                .article-nosotros-ubicacion-clima-foto{
+                    width: 130px;
+                }
+                .article-nosotros-ubicacion-clima-temperatura{
+                    margin-top: 10px;
+                    font-size: 20px;
+                }
+                .article-nosotros-ubicacion-clima-cielo{
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    font-size: 20px;
+                }
+            }
+            .article-nosotros-ubicacion-mensaje{
+                font-size: 20px;
             }
             .article-nosotros-ubicacion-mapa{
                 width: 550px;
