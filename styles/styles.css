@@ -467,6 +467,16 @@ footer {
   border: black 2px solid;
 }
 
+.inputForm:hover {
+  background-color: #f8f8f8;
+}
+
+.inputForm:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: black 2px solid;
+}
+
 .main-clientes {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -20,22 +20,22 @@ function crearForm() {
     errorForm.innerHTML = ""
 
     if (nombreFormularioCompra.value.length < 2) {
-      error += `El nombre debe contener más de 5 caracteres <br>`
+      error += `*El nombre debe contener más de 5 caracteres <br>`
       entrar = true
     }
 
     if (edadFormularioCompra.value < 18) {
-      error += `Tienes que ser mayor de edad (18 años) <br>`
+      error += `*Tienes que ser mayor de edad (18 años) <br>`
       entrar = true
     }
 
     if (!mailFormat.test(emailFormularioCompra.value)) {
-      error += `El email no es valido <br>`
+      error += `*El email no es valido <br>`
       entrar = true
     }
 
     if (direccionFormularioCompra.value.length < 2) {
-      error += `Ingresa la direccion completa <br>`
+      error += `*Ingresa la direccion completa <br>`
       entrar = true
     }
 
@@ -44,6 +44,7 @@ function crearForm() {
     }
 
     if (error == "") {
+      if(carrito.length != ""){
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -58,8 +59,12 @@ function crearForm() {
         location.reload();
       }, 3000)
     }
+    else{
+      Swal.fire('No puedes comprar con el carrito vacio')
+    }
+    }
     else {
-      Swal.fire('Completa el formulario');
+      Swal.fire('Debes tener el formulario completo');
     }
   })
 
@@ -92,6 +97,8 @@ function crearForm() {
 }
 
 
+
+
 function paginaDelFormulario() {
   asideProductos.innerHTML = ""
   asideProductos.style = "width:0px; height:0px;"
@@ -108,32 +115,32 @@ function paginaDelFormulario() {
     <div class="row mb-4">
       <div class="col">
         <div class="form-outline">
-          <input type="text" id="nombre" class="form-control" />
+          <input type="text" id="nombre" class="form-control inputForm" />
           <label class="form-label mt-2" for="nombre">Nombre</label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
-          <input type="number" id="edad" class="form-control" />
+          <input type="number" id="edad" class="form-control inputForm" />
           <label class="form-label mt-2" for="edad">Edad</label>
         </div>
       </div>
     </div>
   
     <div class="form-outline mb-4">
-      <input type="email" id="email" class="form-control" />
+      <input type="email" id="email" class="form-control inputForm" />
       <label class="form-label mt-2" for="email">Email</label>
     </div>
   
     <div class="form-outline mb-4">
-      <input type="text" id="direccion" class="form-control" />
+      <input type="text" id="direccion" class="form-control inputForm" />
       <label class="form-label mt-2" for="direccion">Dirreción completa</label>
     </div>
 
     <p id="error"></p>
 
-    <button id="confirmarForm" type="submit" class="btn btn-primary btn-block mb-4 botonForm">COMPRAR</button>
-    <button id="cancelarForm" type="button" class="btn btn-primary btn-block mb-4 botonForm">CANCELAR</button>
+    <button id="confirmarForm" type="submit" class="btn btn-success btn-block mb-4 botonForm">COMPRAR</button>
+    <button id="cancelarForm" type="button" class="btn btn-danger btn-block mb-4 botonForm">CANCELAR</button>
 
     <div class="container">
     <table class="table">
