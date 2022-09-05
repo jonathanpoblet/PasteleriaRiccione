@@ -25,10 +25,10 @@ function dibujarCarrito(){
 
             renglonCarrito.innerHTML= `
                 <tr>
-                    <td>${elemento.producto.identificador}</td>
-                    <td>${elemento.producto.nombre}</td>
-                    <td><input id="cantidad-producto-${elemento.producto.identificador}" type="number" value="${elemento.cantidad}" min="1" max="500" step="1"</td>
-                    <td>$${elemento.producto.precio}</td>
+                    <td class="formDesaparece">${elemento.producto.identificador}</td>
+                    <td class="formTexto">${elemento.producto.nombre}</td>
+                    <td><input class="inputCantidad" id="cantidad-producto-${elemento.producto.identificador}" type="number" value="${elemento.cantidad}" min="1" max="500" step="1"</td>
+                    <td class="formDesaparece">$${elemento.producto.precio}</td>
                     <td>$${elemento.producto.precio * elemento.cantidad}</td>
                     <td><button id="eliminar-producto-${elemento.producto.identificador}" type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
                 </tr>

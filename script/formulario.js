@@ -132,18 +132,18 @@ function paginaDelFormulario() {
 
     <p id="error"></p>
 
-    <button id="confirmarForm" type="submit" class="btn btn-primary btn-block mb-4">COMPRAR</button>
-    <button id="cancelarForm" type="button" class="btn btn-primary btn-block mb-4">CANCELAR COMPRA</button>
+    <button id="confirmarForm" type="submit" class="btn btn-primary btn-block mb-4 botonForm">COMPRAR</button>
+    <button id="cancelarForm" type="button" class="btn btn-primary btn-block mb-4 botonForm">CANCELAR</button>
 
     <div class="container">
     <table class="table">
         <thead>
             <tr>
-              <th scope="col"></th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Total</th>
+              <th class="formDesaparece" scope="col"></th>
+              <th class="formTexto" scope="col">Nombre</th>
+              <th class="formTexto" scope="col">Cantidad</th>
+              <th class="formDesaparece" scope="col">Precio</th>
+              <th class="formTexto" scope="col">Total</th>
             </tr>
         </thead>
         <tbody id="contenedorCarritoForm">
@@ -151,7 +151,7 @@ function paginaDelFormulario() {
         </tbody>
         <tfoot>
             <tr id="footerForm">
-            <th scope="row" colspan="5">Total:</th>
+            <th class="formTexto" scope="row" colspan="5">Total:</th>
             </tr>
         </tfoot>
     </table>
@@ -172,12 +172,12 @@ function dibujarCarritoForm() {
 
       renglonCarrito.innerHTML = `
                 <tr>
-                    <td><img src=${elemento.producto.foto} style= "width:80px; height:80px;"></td>
-                    <td>${elemento.producto.nombre}</td>
-                    <td><input id="cantidadProducto${elemento.producto.identificador}" type="number" value="${elemento.cantidad}" min="1" max="500" step="1"</td>
-                    <td>$${elemento.producto.precio}</td>
+                    <td class="formDesaparece"><img src=${elemento.producto.foto} style= "width:80px; height:80px;"></td>
+                    <td class="formTexto">${elemento.producto.nombre}</td>
+                    <td><input id="cantidadProducto${elemento.producto.identificador}" type="number" value="${elemento.cantidad}" min="1" max="99" step="1" class="inputCantidad"</td>
+                    <td class="formDesaparece">$${elemento.producto.precio}</td>
                     <td>$${elemento.producto.precio * elemento.cantidad}</td>
-                    <td><button id="eliminarProducto${elemento.producto.identificador}" type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
+                    <td><button id="eliminarProducto${elemento.producto.identificador}" type="button" class="btn btn-danger "><i class="bi bi-trash"></i></button></td>
                 </tr>
             `;
 

@@ -311,7 +311,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 100px 100px 0px 150px;
+  padding: 100px 100px 0px 100px;
 }
 
 .main-productos .aside-productos {
@@ -862,6 +862,23 @@ footer {
   }
   .main-nosotros .section-nosotros .article-nosotros-ubicacion .article-nosotros-ubicacion-mapa {
     width: 400px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .formDesaparece {
+    display: none;
+  }
+  .formTexto {
+    font-size: 13px;
+  }
+  .inputCantidad {
+    width: 40px;
+    height: 30px;
+  }
+  .botonForm {
+    width: 100px;
+    font-size: 14px;
   }
 }
 
