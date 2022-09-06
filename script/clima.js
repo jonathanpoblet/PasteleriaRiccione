@@ -4,16 +4,19 @@ const temperatura = document.getElementById("temperatura");
 const cielo = document.getElementById("cielo");
 const mensaje = document.getElementById("mensaje")
 
+//Utilizo una api que me da el clima para alentar al cliente a comer su postre favorito sin importar el clima.Siempre es un buen momento!
 async function obtenerClima(){
     const URLGETCLIMA = "https://api.openweathermap.org/data/2.5/weather?id=3435910&appid=ceb1ffc690c9c70fd36175449bbc7d06";
     const respuestaClima = await fetch(URLGETCLIMA);
     const dataClima = await respuestaClima.json();
+    //Paso la temperatura desde Kelvin a grados celcius
     const temp = parseFloat((dataClima.main.temp - 273.15)).toFixed(1) +" °C";
     const lugar = dataClima.name;
     const cieloDescripcion = dataClima.weather[0].main;
 
     ciudad.innerText = lugar;
 
+    //Son todas las opciones que me ofrece la api menos la nieve porque estamos en argentina
     if(cieloDescripcion == "Clear"){
         fotoCielo.src="https://openweathermap.org/img/wn/01d@2x.png"
         temperatura.innerText = temp

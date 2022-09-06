@@ -1,3 +1,5 @@
+//Apartado para poder crear cards dependiendo lo que desee el usuario y validar el carrito para pasar al form
+
 const botonCategoria1 = document.getElementById("botonCategoria1");
 const botonCategoria2 = document.getElementById("botonCategoria2");
 const botonCategoria3 = document.getElementById("botonCategoria3");

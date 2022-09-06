@@ -4,7 +4,7 @@ const seccionProductos = document.getElementById("seccion-productos").getElement
 const articleProductos = seccionProductos[0];
 let productos = [];
 
-
+//Obtengo los productos del JSON y los dibujo en el DOM.
 async function obtenerProductos(){
     const URLGET = "productos.json";
     const respuesta = await fetch(URLGET);
@@ -15,6 +15,7 @@ async function obtenerProductos(){
 }
 obtenerProductos();
 
+//Creo la forma de las cards, añadiendo eventos en su boton.
 function crearCartas(producto){
     let botonCarta = document.createElement("button");
     botonCarta.className = "btn btn-outline-success card-boton"
@@ -72,6 +73,7 @@ function crearCartas(producto){
     return contenedorCarta;
 }
 
+//Recorro los productos para hacer las cards
 function hacerCards(productos){
     productos.forEach(
         (producto) => {

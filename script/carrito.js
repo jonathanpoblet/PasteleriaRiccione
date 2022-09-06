@@ -3,7 +3,7 @@ const contenedorCarrito = document.getElementById("contenedorCarrito");
 const contenedorFooterCarrito = document.getElementById("footer");
 const finalCompra = document.getElementById("botonComprar");
 
-
+//Mantengo el carrito mientras el usuario este en el sitio
 if(sessionStorage.getItem("carrito") != null){
     carrito=JSON.parse(sessionStorage.getItem("carrito"));
     dibujarCarrito();
@@ -16,6 +16,7 @@ class ElementoCarrito{
     }
 }
 
+//Dibujo el carrito
 function dibujarCarrito(){
     contenedorCarrito.innerHTML = "";
 
@@ -61,7 +62,7 @@ function dibujarCarrito(){
 
 
 
-
+//Funcion para borrar elementos
 function borrarProductoCarrito(elementoEliminado){
     const elementosNoBorrados = carrito.filter(
         (elemento) => elemento.producto.identificador != elementoEliminado.producto.identificador

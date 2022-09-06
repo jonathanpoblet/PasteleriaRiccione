@@ -1,17 +1,20 @@
 const formularioCompra = document.getElementById("formularioCompra");
 const botonCarrito = document.getElementById("carrito");
 
+//Funcion general para crear formulario
 function crearForm() {
   botonCarrito.remove();
   paginaDelFormulario();
   dibujarCarritoForm();
 
+  //Tomo los elementos del Formulario para poder validarlo
   const nombreFormularioCompra = document.getElementById("nombre");
   const edadFormularioCompra = document.getElementById("edad");
   const emailFormularioCompra = document.getElementById("email");
   const direccionFormularioCompra = document.getElementById("direccion");
   const errorForm = document.getElementById("error");
 
+  //Valido el form
   formularioCompra.addEventListener("submit", e => {
     e.preventDefault();
     let error = ""
@@ -19,7 +22,7 @@ function crearForm() {
     let mailFormat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/;
     errorForm.innerHTML = ""
 
-    if (nombreFormularioCompra.value.length < 2) {
+    if (nombreFormularioCompra.value.length < 6) {
       error += `*El nombre debe contener más de 5 caracteres <br>`
       entrar = true
     }
@@ -43,6 +46,7 @@ function crearForm() {
       errorForm.innerHTML = error
     }
 
+    //Validar la compra del producto en caso de no tener errores
     if (error == "") {
       if(carrito.length != ""){
       Swal.fire({
@@ -68,6 +72,7 @@ function crearForm() {
     }
   })
 
+  //Opcion para el usuario de cancelar el formulario
   const cancelar = document.getElementById("cancelarForm");
   cancelar.onclick = () => {
     Swal.fire({
@@ -98,7 +103,7 @@ function crearForm() {
 
 
 
-
+//Oculto los articles de productos.html, dandole estructura y lugar al formulario. Todo se maneja dentro del mismo productos.html.
 function paginaDelFormulario() {
   asideProductos.innerHTML = ""
   asideProductos.style = "width:0px; height:0px;"
@@ -167,7 +172,7 @@ function paginaDelFormulario() {
     `
 }
 
-
+//Funcion similar a la del carrito, para poder dibujar un carrito visible debajo del form.
 function dibujarCarritoForm() {
   const contenedorCarritoForm = document.getElementById("contenedorCarritoForm");
   const footerCarritoForm = document.getElementById("footerForm");
